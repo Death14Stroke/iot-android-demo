@@ -1,5 +1,6 @@
 package com.developer.darren.iotapplication;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onSuccess(AuthResult authResult) {
                         FirebaseUser user = authResult.getUser();
                         Toast.makeText(getApplicationContext(),"Logged in, "+user.getEmail(),Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, WeatherActivity.class));   //go from LoginActivity to WeatherActivity
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
